@@ -1,0 +1,35 @@
+{
+  "compileOnSave": false,
+  "compilerOptions": {
+    "baseUrl": ".",
+    "outDir": "./dist/out-tsc",
+    "sourceMap": true,
+    "declaration": false,
+    "module": "esnext",
+    "moduleResolution": "node",
+    "emitDecoratorMetadata": true,
+    "experimentalDecorators": true,
+    "target": "es5",
+    "typeRoots": ["node_modules/@types"],
+    "lib": ["es2017", "dom"],
+    "paths": {
+      "@angular-boilerplate/angular-boilerplate/core": [
+        "libs/angular-boilerplate/core/src/index.ts"
+      ],
+      "@angular-boilerplate/app-models/common": [
+        "libs/app-models/common/src/index.ts"
+      ],
+      "@angular-boilerplate/app-services/common": [
+        "libs/app-services/common/src/index.ts"
+      ],
+      "@angular-boilerplate/angular-boilerplate/posts": [
+        "libs/angular-boilerplate/posts/src/index.ts"
+      ],
+      "@angular-boilerplate/app-models/posts": ["libs/app-models/posts/src/index.ts"],
+      "@angular-boilerplate/app-services/posts": [
+        "libs/app-services/posts/src/index.ts"
+      ]
+    },
+    "rootDir": "."
+  }
+}

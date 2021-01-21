@@ -1,0 +1,27 @@
+talos-toolbar {
+  position: relative;
+  display: flex;
+  flex: 0 0 auto;
+  z-index: 4;
+  border-bottom: 1px solid #ebebeb;
+
+  .mat-toolbar {
+    height: 54px;
+  }
+
+  .logo {
+    display: flex;
+    align-items: center;
+
+    .logo-img {
+      width: 100px;
+    }
+
+    .application-name {
+      margin-top: -3px;
+      font-weight: 500;
+      font-size: 17px;
+      font-style: italic;
+    }
+  }
+}

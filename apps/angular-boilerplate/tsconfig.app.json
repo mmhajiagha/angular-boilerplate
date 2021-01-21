@@ -1,0 +1,17 @@
+{
+  "extends": "../../tsconfig.base.json",
+  "compilerOptions": {
+    "outDir": "../../dist/out-tsc",
+    "types": [],
+    "module": "esnext"
+  },
+  "exclude": [
+    "src/test.ts",
+    "**/*.spec.ts"
+  ],
+  "include": [
+    "**/*.ts",
+    "../../libs/angular-boilerplate/core/src/**/*.ts",
+    "../../libs/angular-boilerplate/posts/src/**/*.ts"
+  ]
+}

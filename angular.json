@@ -1,0 +1,275 @@
+{
+  "$schema": "./node_modules/@angular/cli/lib/config/schema.json",
+  "version": 1,
+  "newProjectRoot": "",
+  "projects": {
+    "angular-boilerplate": {
+      "root": "apps/angular-boilerplate",
+      "sourceRoot": "apps/angular-boilerplate/src",
+      "projectType": "application",
+      "prefix": "app",
+      "schematics": {
+        "@schematics/angular:component": {
+          "styleext": "scss"
+        }
+      },
+      "architect": {
+        "build": {
+          "builder": "@angular-devkit/build-angular:browser",
+          "options": {
+            "outputPath": "dist/apps/angular-boilerplate",
+            "index": "apps/angular-boilerplate/src/index.html",
+            "main": "apps/angular-boilerplate/src/main.ts",
+            "polyfills": "apps/angular-boilerplate/src/polyfills.ts",
+            "tsConfig": "apps/angular-boilerplate/tsconfig.app.json",
+            "assets": [
+              "apps/angular-boilerplate/src/favicon.ico",
+              "apps/angular-boilerplate/src/assets"
+            ],
+            "styles": [
+              "./node_modules/@angular/material/prebuilt-themes/indigo-pink.css",
+              "apps/angular-boilerplate/src/styles.scss"
+            ],
+            "scripts": []
+          },
+          "configurations": {
+            "production": {
+              "fileReplacements": [
+                {
+                  "replace": "apps/angular-boilerplate/src/environments/environment.ts",
+                  "with": "apps/angular-boilerplate/src/environments/environment.prod.ts"
+                }
+              ],
+              "optimization": true,
+              "outputHashing": "all",
+              "sourceMap": false,
+              "extractCss": true,
+              "namedChunks": false,
+              "aot": true,
+              "extractLicenses": true,
+              "vendorChunk": false,
+              "buildOptimizer": true
+            }
+          }
+        },
+        "serve": {
+          "builder": "@angular-devkit/build-angular:dev-server",
+          "options": {
+            "browserTarget": "angular-boilerplate:build"
+          },
+          "configurations": {
+            "production": {
+              "browserTarget": "angular-boilerplate:build:production"
+            }
+          }
+        },
+        "extract-i18n": {
+          "builder": "@angular-devkit/build-angular:extract-i18n",
+          "options": {
+            "browserTarget": "angular-boilerplate:build"
+          }
+        },
+        "test": {
+          "builder": "@angular-devkit/build-angular:karma",
+          "options": {
+            "main": "apps/angular-boilerplate/src/test.ts",
+            "polyfills": "apps/angular-boilerplate/src/polyfills.ts",
+            "tsConfig": "apps/angular-boilerplate/tsconfig.spec.json",
+            "karmaConfig": "apps/angular-boilerplate/karma.conf.js",
+            "styles": [
+              "./node_modules/@angular/material/prebuilt-themes/indigo-pink.css",
+              "apps/angular-boilerplate/src/styles.scss"
+            ],
+            "scripts": [],
+            "assets": [
+              "apps/angular-boilerplate/src/favicon.ico",
+              "apps/angular-boilerplate/src/assets"
+            ]
+          }
+        },
+        "lint": {
+          "builder": "@angular-devkit/build-angular:tslint",
+          "options": {
+            "tsConfig": [
+              "apps/angular-boilerplate/tsconfig.app.json",
+              "apps/angular-boilerplate/tsconfig.spec.json"
+            ],
+            "exclude": ["**/node_modules/**"]
+          }
+        }
+      }
+    },
+    "angular-boilerplate-core": {
+      "projectType": "library",
+      "root": "libs/angular-boilerplate/core",
+      "sourceRoot": "libs/angular-boilerplate/core/src",
+      "prefix": "talos",
+      "architect": {
+        "lint": {
+          "builder": "@angular-devkit/build-angular:tslint",
+          "options": {
+            "tsConfig": [
+              "libs/angular-boilerplate/core/tsconfig.lib.json",
+              "libs/angular-boilerplate/core/tsconfig.spec.json"
+            ],
+            "exclude": ["**/node_modules/**", "!libs/angular-boilerplate/core/**/*"]
+          }
+        },
+        "test": {
+          "builder": "@nrwl/jest:jest",
+          "outputs": ["coverage/libs/angular-boilerplate/core"],
+          "options": {
+            "jestConfig": "libs/angular-boilerplate/core/jest.config.js",
+            "passWithNoTests": true
+          }
+        }
+      }
+    },
+    "app-models-common": {
+      "projectType": "library",
+      "root": "libs/app-models/common",
+      "sourceRoot": "libs/app-models/common/src",
+      "prefix": "talos",
+      "architect": {
+        "lint": {
+          "builder": "@angular-devkit/build-angular:tslint",
+          "options": {
+            "tsConfig": [
+              "libs/app-models/common/tsconfig.lib.json",
+              "libs/app-models/common/tsconfig.spec.json"
+            ],
+            "exclude": ["**/node_modules/**", "!libs/app-models/common/**/*"]
+          }
+        },
+        "test": {
+          "builder": "@nrwl/jest:jest",
+          "outputs": ["coverage/libs/app-models/common"],
+          "options": {
+            "jestConfig": "libs/app-models/common/jest.config.js",
+            "passWithNoTests": true
+          }
+        }
+      }
+    },
+    "app-services-common": {
+      "projectType": "library",
+      "root": "libs/app-services/common",
+      "sourceRoot": "libs/app-services/common/src",
+      "prefix": "talos",
+      "architect": {
+        "lint": {
+          "builder": "@angular-devkit/build-angular:tslint",
+          "options": {
+            "tsConfig": [
+              "libs/app-services/common/tsconfig.lib.json",
+              "libs/app-services/common/tsconfig.spec.json"
+            ],
+            "exclude": ["**/node_modules/**", "!libs/app-services/common/**/*"]
+          }
+        },
+        "test": {
+          "builder": "@nrwl/jest:jest",
+          "outputs": ["coverage/libs/app-services/common"],
+          "options": {
+            "jestConfig": "libs/app-services/common/jest.config.js",
+            "passWithNoTests": true
+          }
+        }
+      }
+    },
+    "angular-boilerplate-posts": {
+      "projectType": "library",
+      "root": "libs/angular-boilerplate/posts",
+      "sourceRoot": "libs/angular-boilerplate/posts/src",
+      "prefix": "talos",
+      "architect": {
+        "lint": {
+          "builder": "@angular-devkit/build-angular:tslint",
+          "options": {
+            "tsConfig": [
+              "libs/angular-boilerplate/posts/tsconfig.lib.json",
+              "libs/angular-boilerplate/posts/tsconfig.spec.json"
+            ],
+            "exclude": ["**/node_modules/**", "!libs/angular-boilerplate/posts/**/*"]
+          }
+        },
+        "test": {
+          "builder": "@nrwl/jest:jest",
+          "outputs": ["coverage/libs/angular-boilerplate/posts"],
+          "options": {
+            "jestConfig": "libs/angular-boilerplate/posts/jest.config.js",
+            "passWithNoTests": true
+          }
+        }
+      }
+    },
+    "app-models-posts": {
+      "projectType": "library",
+      "root": "libs/app-models/posts",
+      "sourceRoot": "libs/app-models/posts/src",
+      "prefix": "talos",
+      "architect": {
+        "lint": {
+          "builder": "@angular-devkit/build-angular:tslint",
+          "options": {
+            "tsConfig": [
+              "libs/app-models/posts/tsconfig.lib.json",
+              "libs/app-models/posts/tsconfig.spec.json"
+            ],
+            "exclude": ["**/node_modules/**", "!libs/app-models/posts/**/*"]
+          }
+        },
+        "test": {
+          "builder": "@nrwl/jest:jest",
+          "outputs": ["coverage/libs/app-models/posts"],
+          "options": {
+            "jestConfig": "libs/app-models/posts/jest.config.js",
+            "passWithNoTests": true
+          }
+        }
+      }
+    },
+    "app-services-posts": {
+      "projectType": "library",
+      "root": "libs/app-services/posts",
+      "sourceRoot": "libs/app-services/posts/src",
+      "prefix": "talos",
+      "architect": {
+        "lint": {
+          "builder": "@angular-devkit/build-angular:tslint",
+          "options": {
+            "tsConfig": [
+              "libs/app-services/posts/tsconfig.lib.json",
+              "libs/app-services/posts/tsconfig.spec.json"
+            ],
+            "exclude": ["**/node_modules/**", "!libs/app-services/posts/**/*"]
+          }
+        },
+        "test": {
+          "builder": "@nrwl/jest:jest",
+          "outputs": ["coverage/libs/app-services/posts"],
+          "options": {
+            "jestConfig": "libs/app-services/posts/jest.config.js",
+            "passWithNoTests": true
+          }
+        }
+      }
+    }
+  },
+  "defaultProject": "angular-boilerplate",
+  "cli": {
+    "analytics": "c0dc69bd-4d7a-480d-952b-30e5af79271f",
+    "defaultCollection": "@nrwl/angular"
+  },
+  "schematics": {
+    "@nrwl/angular:application": {
+      "unitTestRunner": "jest"
+    },
+    "@nrwl/angular:library": {
+      "unitTestRunner": "jest"
+    },
+    "@nrwl/angular:component": {
+      "style": "scss"
+    }
+  }
+}
